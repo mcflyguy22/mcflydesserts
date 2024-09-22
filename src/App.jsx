@@ -27,6 +27,8 @@ export default function App() {
 
   const [matchedUrl, setMatchedUrl] = useState([])
 
+  const [thumbnails, setThumbnails] = useState([])
+
   const [cartQuantity, setCartQuantity] = useState(0)
 
   const [orderTotal, setOrderTotal] = useState(0)
@@ -76,19 +78,22 @@ export default function App() {
 
   // update state to reflect the type of screen based on window width
   var matchedUrlArray = []
-
+  var thumbnailsArray = []
   useEffect(() => {
     matchedUrlArray = []
+    thumbnailsArray = []
     for (let i=0; i<items.length; i++) {
       for (const key in items[i].image) {
         if (key === screenType) {
           matchedUrlArray.push(items[i].image[key])
+          thumbnailsArray.push(items[i].image.thumbnail)
         }
       }
     }
     setMatchedUrl(matchedUrlArray)
+    setThumbnails(thumbnailsArray)
   }, [screenType])
-  
+  console.log("thumbnails array:", thumbnails)
   useEffect(() => {
     window.addEventListener('resize', function() {
       if (window.innerWidth < 600) {
@@ -233,7 +238,7 @@ export default function App() {
         />
       </div>
       {showConfirm && <div className="confirm-order-blur" onClick={resetItems}></div>}
-      {showConfirm && <div className="confirm-order-modal"><FontAwesomeIcon icon={faCheckCircle} className="modal-check" /><h4>Order Confirmed</h4><span>We hope you enjoy your food!</span><Modal items={items} orderTotal={orderTotal}/><button className="confirm-order" onClick={resetItems}>Start New Order</button></div>}
+      {showConfirm && <div className="confirm-order-modal"><FontAwesomeIcon icon={faCheckCircle} className="modal-check" /><h4>Order Confirmed</h4><span>We hope you enjoy your food!</span><Modal items={items} orderTotal={orderTotal} thumbnails={thumbnails}/><button className="confirm-order" onClick={resetItems}>Start New Order</button></div>}
       <div className="alert-success">
         {showAlertAdd && <Alert icon={<TaskAlt fontSize="inherit" />} variant="filled" severity="success">
           Item was added to Cart successfully!

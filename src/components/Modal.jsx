@@ -5,7 +5,7 @@ export default function Modal(props) {
             return (
             <div key={index} className="modal-item">                             
                 <div className="modal-item-details">
-                    <img className="thumbnail" src={item.image.thumbnail}/>
+                    <img className="thumbnail" src={props.thumbnails[index]}/>
                     <div className="cart-item-details">
                         <p className="cart-item-name">{ item.name }</p>
                         <p className="cart-item-price"><span id="cart-item-qty">{item.quantity}x</span> <span id="unit-price">@ ${ item.price.toFixed(2) }</span> <span id="total-price">${ (item.price * item.quantity).toFixed(2) }</span></p>
