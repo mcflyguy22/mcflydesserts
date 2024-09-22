@@ -34,7 +34,7 @@ export default function Cart(props) {
         <>
             <div className="cart">
                 <h4>Your Cart {cartItems.length > 0 ? `(${totalQuantity})` : "Is Empty"}</h4>
-                {(cartItems.length > 0) ? menuItemElements : <img src="/public/assets/images/illustration-empty-cart.svg" />}
+                {(cartItems.length > 0) ? menuItemElements : <img src="/assets/images/illustration-empty-cart.svg" />}
                 {(cartItems.length > 0) && <><div className="cart-total">
                     Order Total 
                     <h1 className="order-total">${props.orderTotal.toFixed(2)}</h1>
