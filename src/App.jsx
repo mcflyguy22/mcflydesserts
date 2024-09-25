@@ -241,10 +241,10 @@ export default function App() {
       {showConfirm && <div className="confirm-order-modal"><FontAwesomeIcon icon={faCheckCircle} className="modal-check" /><h4>Order Confirmed</h4><span>We hope you enjoy your food!</span><Modal items={items} orderTotal={orderTotal} thumbnails={thumbnails}/><button className="confirm-order" onClick={resetItems}>Start New Order</button></div>}
       <div className="alert-success">
         {showAlertAdd && <Alert icon={<TaskAlt fontSize="inherit" />} variant="filled" severity="success">
-          Item was added to Cart successfully!
+          Item added to Cart!
         </Alert>}
         {showAlertRemove && <Alert icon={<Delete fontSize="inherit" />} variant="filled" severity="error">
-          Item was removed from the Cart.
+          Item removed from Cart.
         </Alert>}
       </div>
     </div>

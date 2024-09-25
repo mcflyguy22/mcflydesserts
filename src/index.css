@@ -26,7 +26,7 @@ body{
 }
 
 #root{
-  margin: 87px auto;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Red Hat Text", sans-serif;
@@ -48,6 +48,7 @@ body{
     margin: 0;
     padding: 0;
     align-items: center;
+    justify-content: start;
 }
 
 .menu-items-header{
@@ -466,11 +467,16 @@ p {
 
 .alert-success{
     position: fixed;
-    top: 10px;
-    left: 35%;
+    max-width: 350px;
+    top: 140px;
+    left: 50%;
+    transform: translate(-50%, -20%);
     display: flex;
     flex-direction: column;
     column-gap: 10px;
+    z-index: 3;
+    text-align: center;
+    box-shadow: 0 4px 6px rgb(0, 0, 0, 0.3);
 }
 @keyframes press {
     0% {
@@ -493,20 +499,18 @@ p {
     }
   }
 
-@media(max-width: 1350px){
 
+
+@media(max-width: 1048px){
     .menu-items-header{
         justify-content: center;
     }
     .container{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         margin: 20px;
         justify-items: center;
     }
     
-}
-
-@media(max-width: 855px){
     .view-cart{
         visibility: visible;
     }
